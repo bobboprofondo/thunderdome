@@ -1,6 +1,7 @@
 import board
 import neopixel
 import argparse
+from rpi_ws281x import *
 
 import animations
 import data.leds as leds
