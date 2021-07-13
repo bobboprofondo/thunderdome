@@ -1,13 +1,14 @@
-# import board
-# import neopixel
+import time
+import argparse
 
-import data.leds as leds
+import animations
+import devpixel
 
+    
 def main():
     # get list of leds and their coords
-    l = leds.leds
-    print(l)
-    
-
+    strip = devpixel.ProxyAdafruitNeopixel
+    animations.simpleTest(strip(), (0, 255, 0), 5)
+    # animations.colorWipe(strip, (0,255,0), 5)
     
 main()
