@@ -37,12 +37,12 @@ if __name__ == '__main__':
 
         while True:
             print ('Color wipe animations.')
-            animations.colorWipe(strip, Color(255, 0, 0))  # Red wipe
-            animations.colorWipe(strip, Color(0, 255, 0))  # Blue wipe
-            animations.colorWipe(strip, Color(0, 0, 255))  # Green wipe
-            print ('Rainbow animations.')
+            animations.colorWipe(strip, Color(255, 0, 0), 10)  # Red wipe
+            animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
+            animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
+            #print ('Rainbow animations.')
             #animations.rainbow(strip)
             
     except KeyboardInterrupt:
         if args.clear:
-            colorWipe(strip, Color(0,0,0), 10)
+            animations.colorWipe(strip, Color(0,0,0), 10)
