@@ -17,7 +17,7 @@ def colorWipe(strip, color, wait_ms=50):
         strip.show()
         time.sleep(wait_ms/1000.0)
 
-def simpleTest(strip, color, wait_ms=10):
+def simpleTest(strip, color, wait_ms=2):
 
     print(strip.numPixels())
 
