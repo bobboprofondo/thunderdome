@@ -26,7 +26,8 @@ if __name__ == '__main__':
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
     # Intialize the library (must be called once before other functions).
-    strip.begin()
+    # TODO Fails when debugging on WSL Debian, as only runs on Raspberry Pi hardware. Handle different hardware somehow
+    strip.begin() 
 
     print ('Press Ctrl-C to quit.')
     if not args.clear:
