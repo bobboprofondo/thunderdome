@@ -1,5 +1,5 @@
-import board
-import neopixel
+#import board
+#import neopixel
 import argparse
 from rpi_ws281x import *
 
@@ -36,13 +36,14 @@ if __name__ == '__main__':
     try:
 
         while True:
-            print ('Color wipe animations.')
-            animations.colorWipe(strip, Color(255, 0, 0), 10)  # Red wipe
-            animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
-            animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
-            #print ('Rainbow animations.')
-            #animations.rainbow(strip)
-            
+            #print ('Color wipe animations.')
+            #animations.colorWipe(strip, Color(255, 0, 0), 10)  # Red wipe
+            #animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
+            #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
+            print ('Switch Inside Out.')
+            animations.insideout(strip, Color(150, 0, 150), l)
+
     except KeyboardInterrupt:
         if args.clear:
-            animations.colorWipe(strip, Color(0,0,0), 10)
+            animations.colorWipe(strip, Color(0, 0, 0), 10)
+            

@@ -9,6 +9,7 @@ print("%3d vertices loaded." % (len(v)))
 #   Vertex coords
 #   In or Out
 # iterate through v and set up list of LEDs, 4 per vertex
+
 leds = []
 
 for x in v:

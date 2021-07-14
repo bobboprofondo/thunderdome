@@ -20,7 +20,6 @@ def main():
     # get list of leds and their coords
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
     
-    animations.simpleTest(strip, Color(0, 255, 0), 5)
     animations.colorWipe(strip, (0,255,0), 5)
     print(strip)
 
