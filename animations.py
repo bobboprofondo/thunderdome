@@ -31,8 +31,6 @@ def insideout(strip, color, l, wait_ms=500):
     else:
         makein = 0
 
-    print(makein,color)
-
     for i in range(strip.numPixels()):
         # Check if inout flag for LED is 1 (In) or 0 (Out)
         print("i: ", i, " l[i]: ", l[i], " getcolor(i): ", strip.getPixelColor(i))
