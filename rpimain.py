@@ -41,7 +41,7 @@ if __name__ == '__main__':
             #animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
             #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
             print ('Switch Inside Out.')
-            animations.insideout(strip, Color(150, 0, 150), l, 50
+            animations.insideout(strip, Color(150, 0, 150), l, 50)
 
     except KeyboardInterrupt:
         if args.clear:
