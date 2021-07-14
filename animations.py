@@ -26,7 +26,7 @@ def simpleTest(strip, color, l, wait_ms=50):
 def insideout(strip, color, l, wait_ms=500):
     # Alternate colour on inside and outside clusters
     # Setup first run through colour
-    if strip.getPixelColorRGB(1) == color: 
+    if strip.getPixelColor(1) == color: 
         makein = 1
     else:
         makein = 0
