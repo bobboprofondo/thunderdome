@@ -27,9 +27,9 @@ def insideout(strip, color, l, wait_ms=500):
     # Alternate colour on inside and outside clusters
     # Setup first run through colour
     if strip.getPixelColor(0) == color: 
-        makein = 0
-    else:
         makein = 1
+    else:
+        makein = 0
 
     print(makein,color)
 
@@ -41,5 +41,5 @@ def insideout(strip, color, l, wait_ms=500):
         else:
             strip.setPixelColor(i, Color(0, 0, 0))
         
-    strip.show()
-    time.sleep(wait_ms/1000.0)
+        strip.show()
+        time.sleep(wait_ms/1000.0)
