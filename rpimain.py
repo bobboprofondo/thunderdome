@@ -1,6 +1,5 @@
-#import board
-#import neopixel
 import argparse
+import time
 from rpi_ws281x import *
 
 import animations
@@ -37,11 +36,17 @@ if __name__ == '__main__':
 
         while True:
             #print ('Color wipe animations.')
-            #animations.colorWipe(strip, Color(255, 0, 0), 10)  # Red wipe
+            animations.colorWipe(strip, Color(255, 0, 0), 10)  # Red wipe
             #animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
             #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
+
             print ('Switch Inside Out.')
             animations.insideout(strip, Color(255, 255, 255), l, 800)
+            animations.insideout(strip, Color(255, 255, 255), l, 800)
+            animations.insideout(strip, Color(255, 255, 255), l, 800)
+            animations.insideout(strip, Color(255, 255, 255), l, 800)
+
+            time.sleep(2)
 
     except KeyboardInterrupt:
         if args.clear:
