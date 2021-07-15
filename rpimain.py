@@ -42,12 +42,12 @@ if __name__ == '__main__':
             #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
 
             print ('Switch Inside Out.')
-            animations.insideout(strip, l, Color(180, 0, 180), wait_ms=2800)
-            animations.insideout(strip, l, Color(180, 180, 0), wait_ms=2800)
-            animations.insideout(strip, l, Color(150, 30, 255), wait_ms=2800)
-            animations.insideout(strip, l, Color(255, 255, 255), wait_ms=2800)
+            animations.insideout(strip, l, Color(180, 180, 0), Color(180, 180, 0), wait_ms=1200)
+            animations.insideout(strip, l, Color(180, 0, 180), Color(180, 0, 180), wait_ms=1200)
+            animations.insideout(strip, l, Color(150, 30, 255), Color(150, 30, 255), wait_ms=1200)
+            animations.insideout(strip, l, Color(255, 255, 255), Color(255, 255, 255), wait_ms=1200)
 
-            time.sleep(20)
+            time.sleep(10)
 
     except KeyboardInterrupt:
         if args.clear:
