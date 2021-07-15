@@ -23,11 +23,11 @@ def simpleTest(strip, color, l, wait_ms=50):
         print(strip.pixels[i])
         time.sleep(wait_ms/1000.0)
 
-def insideout(strip, color, l, wait_ms=500):
+def insideout(strip, l, color1, color2=Color(0, 0, 0), wait_ms=500):
     # Alternate colour on inside and outside clusters
     # Setup first run through colour
     # Once looping, this determines current list state
-    if strip.getPixelColor(0) == color: 
+    if strip.getPixelColor(0) == color1: 
         makein = 1
     else:
         makein = 0
@@ -35,9 +35,9 @@ def insideout(strip, color, l, wait_ms=500):
     for i in range(strip.numPixels()):
         # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
         if l[i][3] == makein:
-            strip.setPixelColor(i, color)
+            strip.setPixelColor(i, color1)
         else:
-            strip.setPixelColor(i, Color(0, 0, 0))
+            strip.setPixelColor(i, color2)
         
     strip.show()
     time.sleep(wait_ms/1000.0)
