@@ -55,4 +55,4 @@ if __name__ == '__main__':
 
     except KeyboardInterrupt:
         if args.clear:
-            animations.colorWipe(strip, l, Color(0, 0, 0), wait_ms=10)
+            animations.colorWipe(strip, Color(0, 0, 0), wait_ms=10)
