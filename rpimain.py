@@ -5,7 +5,7 @@ from rpi_ws281x import *
 import animations
 import data.leds as leds
 
-# Donawan!
+# Donawan! Jason Doner-van
 # Donawan!
 
 l = leds.leds
