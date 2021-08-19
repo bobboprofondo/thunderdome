@@ -5,8 +5,6 @@ from rpi_ws281x import *
 import animations
 import data.leds as leds
 
-# Donawan! Jason Donawan!
-
 l = leds.leds
 
 # LED strip configuration:
@@ -22,7 +20,6 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 if __name__ == '__main__':
     # Process arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
     parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
     args = parser.parse_args()
 
