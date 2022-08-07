@@ -2,7 +2,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 
-hostName = "localhost"
+hostName = "ledpi.local"
 serverPort = 8080
 
 class MyServer(BaseHTTPRequestHandler):
