@@ -37,19 +37,19 @@ if __name__ == '__main__':
 
         while True:
             #print ('Color wipe animations.')
-            animations.colorWipe(strip, Color(180, 0, 180), 250)  # Red wipe
+            animations.colorWipe(strip, Color(0, 153, 255), 200)  # Red wipe
             #animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
             #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
 
             print ('Switch Inside Out.')
-            animations.insideout(strip, l, Color(180, 180, 0), Color(180, 0, 180), wait_ms=1200)
-            animations.insideout(strip, l, Color(180, 180, 0), Color(180, 0, 180), wait_ms=1200)
-            animations.insideout(strip, l, Color(180, 0, 180), Color(180, 0, 180), wait_ms=1200)
-            animations.insideout(strip, l, Color(180, 0, 180), Color(180, 50, 180), wait_ms=1200)
-            animations.insideout(strip, l, Color(150, 30, 255), Color(150, 30, 255), wait_ms=1200)
-            animations.insideout(strip, l, Color(150, 30, 255), Color(150, 30, 255), wait_ms=1200)
-            animations.insideout(strip, l, Color(255, 255, 255), Color(0, 255, 255), wait_ms=1200)
-            animations.insideout(strip, l, Color(255, 0, 255), Color(255, 255, 255), wait_ms=1200)
+            animations.insideout(strip, l, Color(204, 102, 255), Color(180, 0, 180), wait_ms=1000)
+            animations.insideout(strip, l, Color(0, 153, 255), Color(204, 102, 255), wait_ms=1000)
+            animations.insideout(strip, l, Color(204, 102, 255), Color(180, 0, 180), wait_ms=1000)
+            animations.insideout(strip, l, Color(0, 153, 255), Color(204, 102, 255), wait_ms=1000)
+            animations.insideout(strip, l, Color(204, 102, 255), Color(150, 30, 255), wait_ms=1000)
+            animations.insideout(strip, l, Color(0, 153, 255), Color(150, 30, 255), wait_ms=1000)
+            animations.insideout(strip, l, Color(255, 255, 255), Color(0, 153, 255), wait_ms=1000)
+            animations.insideout(strip, l, Color(0, 153, 255), Color(255, 255, 255), wait_ms=1000)
 
             time.sleep(10)
 
