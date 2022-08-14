@@ -100,7 +100,7 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_
 
 def rainbowloop(strip, l, loop_ms = 10000):
     print("rainbowloop: loops_ms ", loop_ms)
-    pixelcount = range(strip.numPixels())
+    pixelcount = len(strip.numPixels())
     for i in pixelcount:
         strip.setPixelColor(i, hsv_to_rgb(round(i / pixelcount), 1., 1.))
 
