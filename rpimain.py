@@ -37,22 +37,13 @@ if __name__ == '__main__':
 
         while True:
             #print ('Color wipe animations.')
-            animations.colorWipe(strip, Color(0, 153, 255), 200)  # Red wipe
+            animations.colorWipe(strip, Color(0, 153, 255), 50)  # Red wipe
             #animations.colorWipe(strip, Color(0, 255, 0), 100)  # Blue wipe
             #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
 
-            print ('Switch Inside Out.')
-            animations.insideout(strip, l, Color(204, 102, 255), Color(180, 0, 180), wait_ms=1000)
-            animations.insideout(strip, l, Color(0, 153, 255), Color(204, 102, 255), wait_ms=1000)
-            animations.insideout(strip, l, Color(204, 102, 255), Color(180, 0, 180), wait_ms=1000)
-            animations.insideout(strip, l, Color(0, 153, 255), Color(204, 102, 255), wait_ms=1000)
-            animations.insideout(strip, l, Color(204, 102, 255), Color(150, 30, 255), wait_ms=1000)
-            animations.insideout(strip, l, Color(0, 153, 255), Color(150, 30, 255), wait_ms=1000)
-            animations.insideout(strip, l, Color(255, 255, 255), Color(0, 153, 255), wait_ms=1000)
-            animations.insideout(strip, l, Color(0, 153, 255), Color(255, 255, 255), wait_ms=1000)
-
-            time.sleep(10)
-
+            print ('Fade Inside Out.')
+            animations.fadeinsideout(strip, l, Color(0, 153, 255), Color(180, 0, 180), fade_ms=2000)
+            
     except KeyboardInterrupt:
         if args.clear:
             animations.colorWipe(strip, Color(0, 0, 0), wait_ms=10)

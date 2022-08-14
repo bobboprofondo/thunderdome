@@ -38,6 +38,31 @@ def insideout(strip, l, color1, color2=Color(0, 0, 0), wait_ms=500):
             strip.setPixelColor(i, color1)
         else:
             strip.setPixelColor(i, color2)
-        
+    
     strip.show()
     time.sleep(wait_ms/1000.0)
+
+def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
+    # Alternate colour on inside and outside clusters
+    # Setup first run through colour
+    # Once looping, this determines current list state
+    starttime = time.time
+    endtime = starttime + (fade_ms / 1000)
+
+    if strip.getPixelColor(0) == color1: 
+        makein = 1
+    else:
+        makein = 0
+
+    while time.time() < endtime:
+        # Calculate how far through the fade we should be as a percentage 
+        progress = (time.time() - starttime) / (endtime - starttime)
+
+        for i in range(strip.numPixels()):
+            # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
+            if l[i][3] == makein:
+                strip.setPixelColor(i, Color(color1[0] * progress, color1[1] * progress, color1[2] * progress))
+            else:
+                strip.setPixelColor(i, Color(color2[0] * progress, color2[1] * progress, color2[2] * progress))
+        
+        strip.show()
