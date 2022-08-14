@@ -42,7 +42,7 @@ if __name__ == '__main__':
             #animations.colorWipe(strip, Color(0, 0, 255), 30)  # Green wipe
 
             print ('Fade Inside Out.')
-            animations.fadeinsideout(strip, l, Color(0, 153, 255), Color(180, 180, 0), fade_ms=3000)
+            animations.fadeinsideout(strip, l, Color(0, 153, 255), Color(180, 180, 0), fade_ms=5000)
             
     except KeyboardInterrupt:
         if args.clear:

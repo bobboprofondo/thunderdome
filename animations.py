@@ -7,6 +7,7 @@ import time
 from datetime import datetime, timedelta
 import argparse
 from rpi_ws281x import Color
+from math import sqrt
 
 # Define functions which animate LEDs in various ways.
 def colorWipe(strip, color, wait_ms=50):
@@ -53,12 +54,12 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     for i in range(strip.numPixels()):
         # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
         if l[i][3] == 1:
-            strip.setPixelColor(i, color1)
+            strip.setPixelColor(i, strip.gamma32(color1))
         else:
-            strip.setPixelColor(i, color2)
+            strip.setPixelColor(i, strip.gamma32(color2))
 
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
         progress = (datetime.today() - starttime) / (endtime - starttime)
-        strip.setBrightness(round(progress * 255)) # Straightline brightness from 0 to full        
+        strip.setBrightness(round(sqrt(progress) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
