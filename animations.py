@@ -12,7 +12,7 @@ from math import sqrt
 
 # Define functions which animate LEDs in various ways.
 def colorWipe(strip, color, wait_ms=50):
-    """Wipe color across display a pixel at a time."""
+    print("colorWipe: ", color, " wait_ms: ", wait_ms)
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
         strip.show()
