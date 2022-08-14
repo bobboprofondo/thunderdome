@@ -4,6 +4,7 @@
 # various animations on a strip of NeoPixels.
 
 import time
+from datetime import datetime, timedelta
 import argparse
 from rpi_ws281x import Color
 
@@ -46,17 +47,17 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     # Alternate colour on inside and outside clusters
     # Setup first run through colour
     # Once looping, this determines current list state
-    starttime = time.time
-    endtime = starttime + (fade_ms / 1000)
+    starttime = datetime.today()
+    endtime = starttime + timedelta(milliseconds=fade_ms)
 
     if strip.getPixelColor(0) == color1: 
         makein = 1
     else:
         makein = 0
 
-    while time.time() < endtime:
+    while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
-        progress = (time.time() - starttime) / (endtime - starttime)
+        progress = (datetime.today() - starttime) / (endtime - starttime)
 
         for i in range(strip.numPixels()):
             # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
