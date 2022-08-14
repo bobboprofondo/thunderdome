@@ -45,7 +45,7 @@ def insideout(strip, l, color1, color2=Color(0, 0, 0), wait_ms=500):
     strip.show()
     time.sleep(wait_ms/1000.0)
 
-def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
+def fadein(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     # Alternate colour on inside and outside clusters
     starttime = datetime.today()
     endtime = starttime + timedelta(milliseconds=fade_ms)
@@ -60,6 +60,31 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
         progress = (datetime.today() - starttime) / (endtime - starttime)
+        strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
+        strip.show()
+
+def fadeinandout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
+    # Alternate colour on inside and outside clusters
+    starttime = datetime.today()
+    midtime = starttime + timedelta(milliseconds=fade_ms)
+    endtime = starttime + timedelta(milliseconds=fade_ms * 2)
+
+    for i in range(strip.numPixels()):
+        # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
+        if l[i][3] == 1:
+            strip.setPixelColor(i, color1)
+        else:
+            strip.setPixelColor(i, color2)
+
+    while datetime.today() <= midtime:
+        # Calculate how far through the fade we should be as a percentage 
+        progress = (datetime.today() - starttime) / (endtime - starttime)
+        strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
+        strip.show()
+
+    while datetime.today() <= endtime:
+        # Calculate how far through the fade we should be as a percentage 
+        progress = 1 - (datetime.today() - midtime) / (endtime - midtime)
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
