@@ -6,7 +6,8 @@
 import time
 from datetime import datetime, timedelta
 import argparse
-from rpi_ws281x import *
+from rpi_ws281x import Color
+from numpy import *
 from math import sqrt
 
 # Define functions which animate LEDs in various ways.
@@ -65,8 +66,31 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
 def rainbowloop(strip, l, loop_ms = 10000):
     pixelcount = range(strip.numPixels())
     for i in pixelcount:
-        strip.setPixelColor(i, ColorHSV(round((i / pixelcount) * 65536)))
+        strip.setPixelColor(i, hsv_to_rgb(round(i / pixelcount), 1., 1.))
 
     strip.show()
     time.sleep(loop_ms/1000.0)
 
+
+# HSV Conversion function
+def hsv_to_rgb(h, s, v):
+    shape = h.shape
+    i = int_(h*6.)
+    f = h*6.-i
+
+    q = f
+    t = 1.-f
+    i = ravel(i)
+    f = ravel(f)
+    i%=6
+
+    t = ravel(t)
+    q = ravel(q)
+
+    clist = (1-s*vstack([zeros_like(f),ones_like(f),q,t]))*v
+
+    #0:v 1:p 2:q 3:t
+    order = array([[0,3,1],[2,0,1],[1,0,3],[1,2,0],[3,1,0],[0,1,2]])
+    rgb = clist[order[i], arange(prod(shape))[:,None]]
+
+    return rgb.reshape(shape+(3,))
