@@ -18,7 +18,7 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 # Thunderdome Preferred Colours
 TD_BLUE = Color(0, 51, 240)
-TD_PURPLE = Color(90, 0, 100)
+TD_PURPLE = Color(30, 0, 30)
 TD_TEAL = Color(0, 153, 153)
 TD_MAGENTA = Color(204, 0, 153)
 TD_OFF = Color(0, 0, 0)
