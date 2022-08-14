@@ -44,13 +44,13 @@ if __name__ == '__main__':
 
         while True:
             #print ('Color wipe animations.')
-            animations.colorWipe(strip, TD_BLUE, 15)  # Red wipe
-            animations.colorWipe(strip, TD_PURPLE, 55)  # Red wipe
-            animations.colorWipe(strip, TD_TEAL, 250)  # Red wipe
-            animations.colorWipe(strip, TD_MAGENTA, 30)  # Red wipe
-            animations.colorWipe(strip, TD_OFF, 50)
-            animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, fade_ms=4500)
-            animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, fade_ms=4500)
+            # animations.colorWipe(strip, TD_BLUE, 15)  # Red wipe
+            # animations.colorWipe(strip, TD_PURPLE, 55)  # Red wipe
+            # animations.colorWipe(strip, TD_TEAL, 250)  # Red wipe
+            # animations.colorWipe(strip, TD_MAGENTA, 30)  # Red wipe
+            # animations.colorWipe(strip, TD_OFF, 50)
+            # animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, fade_ms=4500)
+            # animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, fade_ms=4500)
             animations.fadeinandout(strip, l, TD_TEAL, TD_MAGENTA, fade_ms=4500)
             animations.fadein(strip, l, TD_MAGENTA, TD_BLUE, fade_ms=4500)
 
