@@ -7,7 +7,7 @@ import time
 from datetime import datetime, timedelta
 import argparse
 from rpi_ws281x import Color
-from numpy import *
+# from numpy import *
 from math import sqrt
 
 # Define functions which animate LEDs in various ways.
