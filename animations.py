@@ -63,6 +63,7 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
                 r = round(color1 / 65536)
                 g = round((color1 - r) / 256)
                 b = color1 - r - g
+                print("r ", r, " g ", g, " b ", b)
                 strip.setPixelColor(i, Color(round(r * progress), round(g * progress), round(b * progress)))
             else:
                 r = round(color2 / 65536)
