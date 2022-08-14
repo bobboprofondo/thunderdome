@@ -7,7 +7,7 @@ import time
 from datetime import datetime, timedelta
 import argparse
 from rpi_ws281x import Color
-from numpy import *
+import colorsys 
 from math import sqrt
 
 # Define functions which animate LEDs in various ways.
@@ -102,31 +102,13 @@ def rainbowloop(strip, l, loop_ms = 10000):
     print("rainbowloop: loops_ms ", loop_ms)
     pixelcount = strip.numPixels()
     for i in range(strip.numPixels()):
-        strip.setPixelColor(i, hsv_to_rgb((360. * i / pixelcount), 1., 1.))
+        h = float(i / pixelcount)
+        strip.setPixelColor(i, hsv2rgb(h, 1., 1.))
 
     strip.show()
     time.sleep(loop_ms/1000.0)
 
 
 # HSV Conversion function
-def hsv_to_rgb(h, s, v):
-    shape = h.shape
-    i = int_(h*6.)
-    f = h*6.-i
-
-    q = f
-    t = 1.-f
-    i = ravel(i)
-    f = ravel(f)
-    i%=6
-
-    t = ravel(t)
-    q = ravel(q)
-
-    clist = (1-s*vstack([zeros_like(f),ones_like(f),q,t]))*v
-
-    #0:v 1:p 2:q 3:t
-    order = array([[0,3,1],[2,0,1],[1,0,3],[1,2,0],[3,1,0],[0,1,2]])
-    rgb = clist[order[i], arange(prod(shape))[:,None]]
-
-    return rgb.reshape(shape+(3,))
+def hsv2rgb(h, s, v):
+    return tuple(round(i * 255) for i in colorsys.hsv_to_rgb(h,s,v))
