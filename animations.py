@@ -78,14 +78,14 @@ def fadeinandout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
 
     while datetime.today() <= midtime:
         # Calculate how far through the fade we should be as a percentage 
-        progress = (datetime.today() - starttime) / fade_ms
+        progress = (datetime.today() - starttime) / (midtime - starttime)
         print("Progress ", progress)
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
-        progress = 1 - (datetime.today() - midtime) / fade_ms
+        progress = 1 - (datetime.today() - midtime) / (endtime - midtime)
         print("Progress ", progress)
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
