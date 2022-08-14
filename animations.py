@@ -64,9 +64,11 @@ def fadein(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
         strip.show()
 
 def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_ms=0):
+    print("fadeinout: ", colorin, ", ", colorout, " fade_ms: ", fade_ms, " hold_ms: ", hold_ms)
     # Alternate colour on inside and outside clusters
     starttime = datetime.today()
     fadeuptime = starttime + timedelta(milliseconds=fade_ms)
+    fadedowntime = starttime + timedelta(milliseconds=fade_ms + hold_ms)
     endtime = starttime + timedelta(milliseconds=(fade_ms * 2) + hold_ms)
 
     for i in range(strip.numPixels()):
@@ -87,7 +89,7 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_
 
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
-        progress = 1 - (datetime.today() - midtime) / (endtime - midtime)
+        progress = 1 - (datetime.today() - fadedowntime) / (endtime - fadedowntime)
         #print("Progress ", progress)
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
