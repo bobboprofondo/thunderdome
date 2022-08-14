@@ -61,5 +61,5 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
         progress = (datetime.today() - starttime) / (endtime - starttime)
-        strip.setBrightness(round(sqrt(progress) * 255)) # Straightline (?) brightness from 0 to full        
+        strip.setBrightness(round((progress^2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
