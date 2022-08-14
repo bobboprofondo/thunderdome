@@ -51,6 +51,9 @@ if __name__ == '__main__':
             animations.colorWipe(strip, TD_OFF, wait_ms=25)
             animations.fadeinsideout(strip, l, TD_BLUE, TD_TEAL, fade_ms=5000)
             animations.fadeinsideout(strip, l, TD_PURPLE, TD_BLUE, fade_ms=5000)
+
+            animations.rainbowloop(loop_ms=10000)
+
             animations.colorWipe(strip, TD_OFF, wait_ms=150)
             
     except KeyboardInterrupt:

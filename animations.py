@@ -6,7 +6,7 @@
 import time
 from datetime import datetime, timedelta
 import argparse
-from rpi_ws281x import Color
+from rpi_ws281x import *
 from math import sqrt
 
 # Define functions which animate LEDs in various ways.
@@ -46,8 +46,6 @@ def insideout(strip, l, color1, color2=Color(0, 0, 0), wait_ms=500):
 
 def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     # Alternate colour on inside and outside clusters
-    # Setup first run through colour
-    # Once looping, this determines current list state
     starttime = datetime.today()
     endtime = starttime + timedelta(milliseconds=fade_ms)
 
@@ -63,3 +61,12 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
         progress = (datetime.today() - starttime) / (endtime - starttime)
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
+
+def rainbowloop(strip, l, loop_ms = 10000):
+    pixelcount = range(strip.numPixels())
+    for i in pixelcount:
+        strip.setPixelColor(i, ColorHSV(round((i / pixelcount) * 65536)))
+
+    strip.show()
+    time.sleep(loop_ms/1000.0)
+
