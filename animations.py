@@ -65,6 +65,6 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
             if l[i][3] == makein:
                 strip.setPixelColor(i, Color(color1[0] * progress, color1[1] * progress, color1[2] * progress))
             else:
-                strip.setPixelColor(i, Color(color2[0] * progress, color2[1] * progress, color2[2] * progress))
+                strip.setPixelColor(i, Color(color2.red * progress, color2.blue * progress, color2.green * progress))
         
         strip.show()
