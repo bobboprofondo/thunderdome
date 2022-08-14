@@ -65,8 +65,14 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
         for i in range(strip.numPixels()):
             # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
             if l[i][3] == makein:
-                strip.setPixelColor(i, Color(color1[0] * progress, color1[1] * progress, color1[2] * progress))
+                r = round(color1 / 65536)
+                g = round((color1 - r) / 256)
+                b = color1 - r - g
+                strip.setPixelColor(i, Color(r * progress, g * progress, b * progress))
             else:
-                strip.setPixelColor(i, Color(color2.red * progress, color2.blue * progress, color2.green * progress))
+                r = round(color2 / 65536)
+                g = round((color2 - r) / 256)
+                b = color2 - r - g
+                strip.setPixelColor(i, Color(r * progress, g * progress, b * progress))
         
         strip.show()
