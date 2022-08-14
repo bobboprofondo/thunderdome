@@ -54,9 +54,9 @@ def fadeinsideout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
     for i in range(strip.numPixels()):
         # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
         if l[i][3] == 1:
-            strip.setPixelColor(i, strip.gamma32(color1))
+            strip.setPixelColor(i, color1)
         else:
-            strip.setPixelColor(i, strip.gamma32(color2))
+            strip.setPixelColor(i, color2)
 
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
