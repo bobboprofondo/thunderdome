@@ -16,6 +16,13 @@ LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
+# Thunderdome Preferred Colours
+TD_BLUE = Color(0, 51, 240)
+TD_PURPLE = Color(153, 51, 255)
+TD_TEAL = Color(0, 153, 153)
+TD_MAGENTA = Color(204, 0, 153)
+TD_OFF = Color(0, 0, 0)
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -37,12 +44,12 @@ if __name__ == '__main__':
 
         while True:
             #print ('Color wipe animations.')
-            animations.colorWipe(strip, Color(100, 0, 120), 15)  # Red wipe
-            animations.colorWipe(strip, Color(0, 0, 0), wait_ms=25)
-            animations.fadeinsideout(strip, l, Color(0, 153, 255), Color(180, 180, 0), fade_ms=5000)
-            animations.fadeinsideout(strip, l, Color(120, 0, 255), Color(30, 150, 30), fade_ms=5000)
-            animations.colorWipe(strip, Color(0, 0, 0), wait_ms=150)
+            animations.colorWipe(strip, TD_BLUE, 15)  # Red wipe
+            animations.colorWipe(strip, TD_OFF, wait_ms=25)
+            animations.fadeinsideout(strip, l, TD_BLUE, TD_TEAL, fade_ms=5000)
+            animations.fadeinsideout(strip, l, TD_PURPLE, TD_BLUE, fade_ms=5000)
+            animations.colorWipe(strip, TD_OFF, wait_ms=150)
             
     except KeyboardInterrupt:
         if args.clear:
-            animations.colorWipe(strip, Color(0, 0, 0), wait_ms=10)
+            animations.colorWipe(strip, TD_OFF, wait_ms=10)
