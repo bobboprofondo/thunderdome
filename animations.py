@@ -78,14 +78,14 @@ def fadeinandout(strip, l, color1, color2=Color(0, 0, 0), fade_ms=2000):
 
     while datetime.today() <= midtime:
         # Calculate how far through the fade we should be as a percentage 
-        progress = (datetime.today() - starttime) / (endtime - starttime)
-        strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
+        progress = (datetime.today() - starttime) / fade_ms
+        strip.setBrightness(round((progress) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
     while datetime.today() <= endtime:
         # Calculate how far through the fade we should be as a percentage 
-        progress = 1 - (datetime.today() - midtime) / (endtime - midtime)
-        strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
+        progress = 1 - (datetime.today() - midtime) / fade_ms
+        strip.setBrightness(round((progress) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
 def rainbowloop(strip, l, loop_ms = 10000):
