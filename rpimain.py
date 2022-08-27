@@ -44,19 +44,17 @@ if __name__ == '__main__':
 
         while True:
             #print ('Color wipe animations.')
-            # animations.colorWipe(strip, TD_BLUE, 15)  # Red wipe
-            # animations.colorWipe(strip, TD_PURPLE, 55)  # Red wipe
-            # animations.colorWipe(strip, TD_TEAL, 250)  # Red wipe
-            # animations.colorWipe(strip, TD_MAGENTA, 30)  # Red wipe
-            # animations.colorWipe(strip, TD_OFF, 50)
-            # animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, fade_ms=4500)
-            # animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, fade_ms=4500)
-            # animations.fadeinandout(strip, l, TD_TEAL, TD_MAGENTA, fade_ms=4500)
-            # animations.fadein(strip, l, TD_MAGENTA, TD_BLUE, fade_ms=4500)
-
-            # animations.rainbowloop(strip, l, loop_ms=2000)
-            animations.rainbowfade(strip, l, brightness=0.25, fade_ms=10000, hold_ms=20000)
-
+            #animations.colorWipe(strip, TD_BLUE, 15)  # Red wipe
+            #animations.colorWipe(strip, TD_PURPLE, 55)  # Red wipe
+            #animations.colorWipe(strip, TD_TEAL, 250)  # Red wipe
+            #animations.colorWipe(strip, TD_MAGENTA, 30)  # Red wipe
+            #animations.colorWipe(strip, TD_OFF, 50)
+            animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, brightness=0.8, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, brightness=0.6, fade_ms=1000, hold_ms=8000)
+            #animations.fadeinandout(strip, l, TD_TEAL, TD_MAGENTA, fade_ms=4500)
+            #animations.fadein(strip, l, TD_MAGENTA, TD_BLUE, fade_ms=4500)
+            #animations.rainbowloop(strip, l, loop_ms=2000)
+            animations.rainbowfade(strip, l, brightness=0.25, fade_ms=4000, hold_ms=12000)
             # animations.colorWipe(strip, TD_OFF, wait_ms=200)
             
     except KeyboardInterrupt:

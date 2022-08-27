@@ -86,7 +86,7 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), brightness=1., fade
         # Calculate how far through the fade we should be as a percentage 
         progress = (datetime.today() - starttime) / (fadeuptime - starttime)
         #print("Progress ", progress)
-        strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
+        strip.setBrightness(round(brightness * (progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
     time.sleep(hold_ms/1000)
@@ -95,7 +95,7 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), brightness=1., fade
         # Calculate how far through the fade we should be as a percentage 
         progress = 1 - (datetime.today() - fadedowntime) / (endtime - fadedowntime)
         #print("Progress ", progress)
-        strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
+        strip.setBrightness(round(brightness * (progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
 def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
@@ -115,8 +115,8 @@ def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
 
         for i in range(pixelcount):
             # Get pixel z value to determine colour on Hue cycle
-            # zval = l[i][2][2]
-            zval = (l[i][2][1] + 0.5) / 2
+            zval = l[i][2][2]
+            # zval = (l[i][2][1] + 0.5) / 2
             pc = hsv2rgb((zval + progress) % 1, 1., brightness * (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
@@ -130,8 +130,8 @@ def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
         #print("Progress ", progress)
         for i in range(pixelcount):
             # Get pixel z value to determine colour on Hue cycle
-            # zval = l[i][2][2]
-            zval = (l[i][2][1] + 0.5) / 2
+            zval = l[i][2][2]
+            # zval = (l[i][2][1] + 0.5) / 2
             pc = hsv2rgb((zval + progress) % 1, 1., brightness * (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
