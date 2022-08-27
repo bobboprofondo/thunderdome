@@ -118,7 +118,9 @@ def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
             # Get pixel z value to determine colour on Hue cycle
             zval = l[i][2][2]
             # zval = (l[i][2][1] + 0.5) / 2
-            pc = hsv2rgb((zval + progress) % 1, 1., (brightness - zval) * (progress ** 2))
+            collar = brightness - zval
+            if collar < 0: collar = 0
+            pc = hsv2rgb((zval + progress) % 1, 1., (collar) * (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
            
 
