@@ -115,7 +115,7 @@ def rainbowfade(strip, l, fade_ms=2000, hold_ms=0):
 
         for i in range(pixelcount):
             # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
-            pc = hsv2rgb((i / pixelcount), 1., (progress ** 2))
+            pc = hsv2rgb(((i / pixelcount) + progress) % 1, 1., (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
         strip.show()
@@ -128,7 +128,7 @@ def rainbowfade(strip, l, fade_ms=2000, hold_ms=0):
         #print("Progress ", progress)
         for i in range(pixelcount):
             # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
-            pc = hsv2rgb((i / pixelcount), 1., (progress ** 2))
+            pc = hsv2rgb(((i / pixelcount) + progress) % 1, 1., (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
         strip.show()
