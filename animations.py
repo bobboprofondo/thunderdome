@@ -102,9 +102,7 @@ def rainbowloop(strip, l, loop_ms = 10000):
     print("rainbowloop: loops_ms ", loop_ms)
     pixelcount = strip.numPixels()
     for i in range(strip.numPixels()):
-        # h = float(i / pixelcount)
         pc = hsv2rgb((i / pixelcount), 1., 1.)
-        print(pc)
         strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
     strip.show()
