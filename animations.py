@@ -26,7 +26,7 @@ def simpleTest(strip, color, l, wait_ms=50):
         print(strip.pixels[i])
         time.sleep(wait_ms/1000.0)
 
-def insideout(strip, l, color1, color2=Color(0, 0, 0), wait_ms=500):
+def insideout(strip, l, color1, color2=Color(0, 0, 0), brightness=1., wait_ms=500):
     # Alternate colour on inside and outside clusters
     # Setup first run through colour
     # Once looping, this determines current list state
@@ -45,7 +45,7 @@ def insideout(strip, l, color1, color2=Color(0, 0, 0), wait_ms=500):
     strip.show()
     time.sleep(wait_ms/1000.0)
 
-def fadein(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_ms=0):
+def fadein(strip, l, colorin, colorout=Color(0, 0, 0), brightness=1., fade_ms=2000, hold_ms=0):
     print("fadein: ", colorin, ", ", colorout, " fade_ms: ", fade_ms, " hold_ms: ", hold_ms)
     # Alternate colour on inside and outside clusters
     starttime = datetime.today()
@@ -67,7 +67,7 @@ def fadein(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_ms=0):
     
     time.sleep(hold_ms/1000)
 
-def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_ms=0):
+def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), brightness=1., fade_ms=2000, hold_ms=0):
     print("fadeinandout: ", colorin, ", ", colorout, " fade_ms: ", fade_ms, " hold_ms: ", hold_ms)
     # Alternate colour on inside and outside clusters
     starttime = datetime.today()
@@ -98,7 +98,7 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
-def rainbowfade(strip, l, fade_ms=2000, hold_ms=0):
+def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
     print("rainbowfade: fade_ms: ", fade_ms, " hold_ms: ", hold_ms)
     # Alternate colour on inside and outside clusters
     starttime = datetime.today()
@@ -115,7 +115,7 @@ def rainbowfade(strip, l, fade_ms=2000, hold_ms=0):
 
         for i in range(pixelcount):
             # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
-            pc = hsv2rgb(((i / pixelcount) + progress) % 1, 1., (progress ** 2))
+            pc = hsv2rgb(((i / pixelcount) + progress) % 1, 1., brightness * (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
         strip.show()
@@ -128,12 +128,12 @@ def rainbowfade(strip, l, fade_ms=2000, hold_ms=0):
         #print("Progress ", progress)
         for i in range(pixelcount):
             # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
-            pc = hsv2rgb(((i / pixelcount) + progress) % 1, 1., (progress ** 2))
+            pc = hsv2rgb(((i / pixelcount) + progress) % 1, 1., brightness * (progress ** 2))
             strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
 
         strip.show()
 
-def rainbowloop(strip, l, loop_ms = 10000):
+def rainbowloop(strip, l, brightness=1., loop_ms = 10000):
     print("rainbowloop: loops_ms ", loop_ms)
     pixelcount = strip.numPixels()
     for i in range(strip.numPixels()):
