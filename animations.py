@@ -98,6 +98,41 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), fade_ms=2000, hold_
         strip.setBrightness(round((progress ** 2) * 255)) # Straightline (?) brightness from 0 to full        
         strip.show()
 
+def rainbowfade(strip, l, fade_ms=2000, hold_ms=0):
+    print("rainbowfade: fade_ms: ", fade_ms, " hold_ms: ", hold_ms)
+    # Alternate colour on inside and outside clusters
+    starttime = datetime.today()
+    fadeuptime = starttime + timedelta(milliseconds=fade_ms)
+    fadedowntime = starttime + timedelta(milliseconds=fade_ms + hold_ms)
+    endtime = starttime + timedelta(milliseconds=(fade_ms * 2) + hold_ms)
+
+    pixelcount = strip.numPixels()
+    
+    while datetime.today() <= fadeuptime:
+        # Calculate how far through the fade we should be as a percentage 
+        progress = (datetime.today() - starttime) / (fadeuptime - starttime)
+        #print("Progress ", progress)
+
+        for i in range(pixelcount):
+            # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
+            pc = hsv2rgb((i / pixelcount), 1., (progress ** 2))
+            strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
+
+        strip.show()
+
+    time.sleep(hold_ms/1000)
+
+    while datetime.today() <= endtime:
+        # Calculate how far through the fade we should be as a percentage 
+        progress = 1 - (datetime.today() - fadedowntime) / (endtime - fadedowntime)
+        #print("Progress ", progress)
+        for i in range(pixelcount):
+            # Alternate color on off based on whether inout flag for LED is 1 (In) or 0 (Out)
+            pc = hsv2rgb((i / pixelcount), 1., (progress ** 2))
+            strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
+
+        strip.show()
+
 def rainbowloop(strip, l, loop_ms = 10000):
     print("rainbowloop: loops_ms ", loop_ms)
     pixelcount = strip.numPixels()
