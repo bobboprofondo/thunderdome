@@ -120,7 +120,7 @@ def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
             # zval = (l[i][2][1] + 0.5) / 2
             pc = hsv2rgb((zval + progress) % 1, 1., brightness * (progress ** 2))
 
-            if zval < progress:
+            if zval <= progress:
                 strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
             else:
                 strip.setPixelColor(i, Color(0, 0, 0))
@@ -140,7 +140,7 @@ def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
             # zval = (l[i][2][1] + 0.5) / 2
             pc = hsv2rgb((zval + progress) % 1, 1., brightness * (progress ** 2))
  
-            if zval < progress:
+            if zval <= progress:
                 strip.setPixelColor(i, Color(pc[0],pc[1],pc[2]))
             else:
                 strip.setPixelColor(i, Color(0, 0, 0))
