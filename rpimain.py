@@ -54,7 +54,7 @@ if __name__ == '__main__':
             #animations.fadeinandout(strip, l, TD_TEAL, TD_MAGENTA, fade_ms=4500)
             #animations.fadein(strip, l, TD_MAGENTA, TD_BLUE, fade_ms=4500)
             #animations.rainbowloop(strip, l, loop_ms=2000)
-            animations.rainbowfade(strip, l, brightness=0.25, fade_ms=4000, hold_ms=12000)
+            #animations.rainbowfade(strip, l, brightness=0.25, fade_ms=4000, hold_ms=12000)
             # animations.colorWipe(strip, TD_OFF, wait_ms=200)
             
     except KeyboardInterrupt:
