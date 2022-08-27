@@ -3,7 +3,7 @@ import data.dome as dome
 v = dome.vertices
 print("%3d vertices loaded." % (len(v)))
 
-# d contains LED refs
+# leds contains LED refs
 #   LED number
 #   Vertex number
 #   Vertex coords
