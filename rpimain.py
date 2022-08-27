@@ -48,8 +48,8 @@ if __name__ == '__main__':
             animations.rainbowfade(strip, l, brightness=0.25, fade_ms=4000, hold_ms=12000)
             animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, brightness=0.4, fade_ms=1000, hold_ms=8000)
             animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, brightness=0.4, fade_ms=1000, hold_ms=8000)
-            animations.fadeinandout(strip, l, TD_OFF, TD_PURPLE, brightness=0.4, fade_ms=1000, hold_ms=8000)
-            animations.fadeinandout(strip, l, TD_PURPLE, TD_OFF, brightness=0.4, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_TEAL, TD_MAGENTA, brightness=0.4, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_MAGENTA, TD_BLUE, brightness=0.4, fade_ms=1000, hold_ms=8000)
             # animations.colorWipe(strip, TD_OFF, wait_ms=200)
             
     except KeyboardInterrupt:
