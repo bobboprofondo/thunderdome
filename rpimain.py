@@ -49,8 +49,10 @@ if __name__ == '__main__':
             #animations.colorWipe(strip, TD_TEAL, 250)  # Red wipe
             #animations.colorWipe(strip, TD_MAGENTA, 30)  # Red wipe
             #animations.colorWipe(strip, TD_OFF, 50)
-            animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, brightness=0.8, fade_ms=1000, hold_ms=8000)
-            animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, brightness=0.6, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_BLUE, TD_PURPLE, brightness=0.4, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_PURPLE, TD_TEAL, brightness=0.4, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_OFF, TD_PURPLE, brightness=0.4, fade_ms=1000, hold_ms=8000)
+            animations.fadeinandout(strip, l, TD_PURPLE, TD_OFF, brightness=0.4, fade_ms=1000, hold_ms=8000)
             #animations.fadeinandout(strip, l, TD_TEAL, TD_MAGENTA, fade_ms=4500)
             #animations.fadein(strip, l, TD_MAGENTA, TD_BLUE, fade_ms=4500)
             #animations.rainbowloop(strip, l, loop_ms=2000)
