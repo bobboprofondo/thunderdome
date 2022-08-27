@@ -99,6 +99,7 @@ def fadeinandout(strip, l, colorin, colorout=Color(0, 0, 0), brightness=1., fade
         strip.show()
 
 def rainbowfade(strip, l, brightness=1., fade_ms=2000, hold_ms=0):
+    strip.setBrightness(255)
     print("rainbowfade: fade_ms: ", fade_ms, " hold_ms: ", hold_ms)
     # Alternate colour on inside and outside clusters
     starttime = datetime.today()
