@@ -20,7 +20,7 @@ def main():
     templateData = {
         'rgb' : RGBVal
     }
-    return render_template('main.html', **templateData)
+    return render_template('web/main.html', **templateData)
 
 if __name__ == "__main__":        
     app.run(host=hostName, port=serverPort, debug=True)
